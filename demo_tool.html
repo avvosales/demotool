@@ -192,7 +192,19 @@
         };
     </script>
 
-   
+   <script>
+
+$(document).ready(function() {
+$('.toggleStars').click(function () {
+  $('span', this).each(function(){
+    var classes = ['icon icon-star','icon icon-star-half-full','icon icon-star-empty'];
+    this.className = classes[($.inArray(this.className, classes)+1)%classes.length];
+   });
+ });
+
+</script>
+
+
 
 
     <!--  <img class="preview" id="img" src="">-->
