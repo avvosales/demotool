@@ -1,0 +1,836 @@
+﻿
+<head>
+
+</head>
+<meta charset="utf-8">
+
+<title>Sponsored Listing Demo Tool - Avvo Sales</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="apple-touch-icon" href="http://avvo.com/apple-touch-icon.png?v=2">
+<link rel="icon" href="http://avvo.com/favicon.ico?v=2">
+<link rel="preconnect" href="http://media.avvo.com">
+<link rel="stylesheet" media="all" href="http://avvo.com/assets/amos_responsive/application-cfad31382c045e5f746dd680d57686ed0af7f2f6726f50b61991cdfde3c978e5.css" />
+
+<!--x-editible jquery plugin http://vitalets.github.io/x-editable/
+
+
+     -->
+<!-- bootstrap -->
+
+<script src="http://code.jquery.com/jquery-3.0.0.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<!-- x-editable (bootstrap version) -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/x-editable/1.4.6/bootstrap-editable/js/bootstrap-editable.min.js"></script>
+<link href="http://cdnjs.cloudflare.com/ajax/libs/x-editable/1.4.6/bootstrap-editable/css/bootstrap-editable.css" rel="stylesheet">
+<link rel="stylesheet" media="screen" href="http://avvo.com/assets/amos_responsive/views/lawyers/search-85057aa85ccebe05f45bb22d4ede792d7df0da384ecb5079c8b7b9ec63673e66.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+
+<script src="https://use.fontawesome.com/9818d06258.js"></script>
+<html>
+<body data-env="production">
+
+    <script src="jquery.star-rating-svg.js"></script>
+    <link rel="stylesheet" type="text/css" href="star-rating-svg.css">
+
+
+    <script>
+        //to update editible areas, tag the area you want to be editible with a span ID based on this script
+        $(document).ready(function () {
+            //toggle `popup` / `inline` mode
+
+            $.fn.editable.defaults.mode = 'inline';
+
+            $('#name').click(function () {
+                $('#name').editable({
+                    title: 'Enter username'
+                });
+            });
+
+
+
+
+            $('#rating').editable({
+                type: 'text',
+
+
+                title: 'Enter Avvo rating'
+            });
+
+            $('#rating2').editable({
+                type: 'text',
+
+
+                title: 'Enter Avvo rating'
+            });
+
+            $('#review').editable({
+                type: 'textarea',
+
+
+                title: 'Enter review copy'
+            });
+
+            $('#years').editable({
+                type: 'text',
+
+
+                title: 'Enter years licensed'
+            });
+
+            $('#practiceareas').editable({
+                type: 'textarea',
+
+
+                title: 'Enter practice areas'
+            });
+
+            $('#rating3').editable({
+                type: 'text',
+
+
+                title: 'Enter Avvo Rating'
+            });
+
+            $('#reviews').editable({
+                type: 'text',
+
+
+                title: 'Enter number of reviews'
+            });
+            $('#tagline').editable({
+                type: 'textarea',
+
+
+                title: 'Enter tagline'
+            });
+
+            $('#phone').editable({
+                type: 'text',
+
+
+                title: 'Enter hpone #'
+            });
+            $('#headshot').editable({
+                type: 'textarea',
+
+
+
+                title: 'Paste headshot URL'
+            })
+        });
+
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#form").keyup(function () {
+                var inputVal = $(this).val();
+                $("#img").attr("src", inputVal);
+            });
+
+        });
+    </script>
+
+    <script>
+
+        function toggleDiv(divId) {
+            $("#" + divId).toggle();
+        };
+
+    </script>
+
+
+
+    <script>
+
+        function toggleTwo(divId) {
+            $("#" + divId).toggle();
+        };
+
+    </script>
+
+
+    <script>
+
+        $(function () {
+
+            $("#rateYo").rateYo({
+                rating: 1.5,
+                halfStar: true
+            });
+        });
+
+    </script>
+
+   
+
+
+    <!--  <img class="preview" id="img" src="">-->
+
+
+
+    <style>
+
+        .jq-ry-container {
+            float:left !important;
+        }
+
+        .comments .comment-time, .text-muted {
+            opacity: 0.7;
+        }
+
+        .editable-container.editable-inline {
+            display: inline-block;
+            vertical-align: middle;
+            width: auto;
+            background: rgba(3, 165, 206, 0.16);
+            zoom: 1;
+            padding-right: 67px;
+            padding-top: 10px;
+            padding-left: 10px;
+            padding-bottom: 10px;
+        }
+
+        .text-center {
+            color: #008CC9 !important;
+        }
+
+        .btn-outline {
+    color: #008CC9;
+    background-color: transparent;
+    border: 1px solid currentColor;
+        }
+
+        h1 {
+            color: rgba(3, 165, 206, 0.16);
+        }
+
+        .editable-unsaved {
+            font-weight: inherit !important;
+        }
+
+        .editable-click, a.editable-click, a.editable-click {
+            border-bottom: none;
+        }
+
+            a.editable-click:hover {
+                border-bottom-style: dashed;
+            }
+
+            .editable-click:hover {
+                background: yellow;
+            }
+
+        .editable-input {
+            position: relative !important;
+            z-index: 99999999999;
+            margin-left: 0;
+            left: 0;
+            float: left;
+        }
+    </style>
+
+    <div class="push" style="padding-bottom:100px;"></div>
+    <div class="container">
+        <div class="u-margin-bottom-3-halves">
+            <h1 class="u-margin-top-0" itemprop="contentlocation" itemscope="" itemtype="http://schema.org/City">
+                <span itemprop="name">Avvo</span> SL Demo Tool
+            </h1>
+            <div class="u-margin-bottom-half hidden-xs"></div>
+        </div>
+        <div class="my-rating"></div>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <!--Insert Controls-->
+                <input id="form" placeholder="Headshot URL" class="js-autosuggest-input form-control js-onebox-search js-onebox-search-textfield input_with_icon u-margin-bottom-1 aa-input">
+            </div>
+            <a href="javascript:toggleDiv('clientreviews');" class="btn btn-outline">Toggle Client Reviews</a>
+            <a href="javascript:toggleTwo('avvorating');" class="btn-outline btn">Toggle Avvo Rating</a>
+    <div id="rateYo"></div><br /><br />
+      
+
+            <!--script>
+
+
+        function myFunction(){
+        $("#img").attr("src", $("#form").val());
+        }
+        </script-->
+            <div class="col-xs-12 col-sm-8">
+            </div>
+        </div>
+      
+
+        <!--new ads-->
+
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-9">
+                <div class="" data-gtm-context="">
+                    <div class="avvo-ads">
+                        <div class="v-jk-listings-table">
+                            <div class="row">
+
+
+                                <!-- endnew ads-->
+
+                                
+
+                                <div class="v-jk-listing-card js-zws col-xs-12 gtm-attorney">
+                                    <div class="row visible-xs u-margin-bottom-half fsj-optimizely-original-new-layout">
+                                        <div class="col-xs-12">
+                                            <span class="label u-bg-light-gray u-bg-dark" style="padding: 2px 4px;">Ad</span>Protect your license. Stay out of jail. 25 years of experience. Call for a free consultation 206-438-4451
+                                        </div>
+                                    </div>
+                                    <div class="v-optimizely-card-cells">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-md-9 v-optimizely-card">
+                                                <div class="row hidden-md hidden-lg hidden fsj-optimizely-variation-1-new-layout">
+                                                    <div class="col-xs-12">
+                                                        <span class="label u-bg-light-gray u-bg-dark" style="padding: 2px 4px;">Ad</span> Protect your license. Stay out of jail. 25 years of experience. Call for a free consultation 206-438-4451
+                                                    </div>
+                                                    <div class="col-xs-12 u-spacer-0"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-3 col-sm-2 remove-right-gutter v-js-profile-click">
+                                                        <div class="labeled-img u-font-size-xs">
+                                                            <figure><img class="img-responsive" id="img" src="https://images.avvo.com/avvo/ugc/images/head_shot/standard/22107_1489012153.jpg" alt=""></figure>
+                                                            <div class="label label-pro">
+                                                                <div class="sr-only">Avvo</div> Pro
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-9 col-sm-10 v-js-profile-click">
+                                                        <h3 class="u-vertical-margin-0 fsj-optimizely-original-new-layout"><span id="name">Bradley Johnson</span></h3>
+                                                        <div class="u-font-size-large hidden u-margin-top-0 block-link-proxy fsj-optimizely-variation-1-new-layout">Bradley Johnson</div>
+
+                                                        <div class="row hidden-xs hidden-sm">
+
+                                                            <div class="col-xs-12">
+
+                                                                <span class="label u-bg-light-gray u-bg-dark" style="padding: 2px 4px;">Ad</span><span id="tagline"> Protect your license. Stay out of jail. 25 years of experience. Call for a free consultation 206-438-4451</span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-xs-6 col-md-4 fsj-optimizely-original-new-layout" id="clientreviews">
+                                                                <div class="u-margin-bottom-0 u-font-size-small">
+                                                                    <p class="visible-xs">
+
+                                                                        <span class="u-text-color-yellow"><span aria-hidden="true" class="icon icon-star"></span><span aria-hidden="true" class="icon icon-star"></span><span aria-hidden="true" class="icon icon-star"></span><span aria-hidden="true" class="icon icon-star"></span><span aria-hidden="true" class="icon icon-star"></span></span>
+                                                                        <span class="text-muted">(12)</span>
+                                                                    </p>
+                                                                    <p class="hidden-xs">
+                                                                        <span class="u-text-color-yellow"><span aria-hidden="true" class="icon icon-star"></span><span aria-hidden="true" class="icon icon-star"></span><span aria-hidden="true" class="icon icon-star"></span><span aria-hidden="true" class="icon icon-star"></span><span aria-hidden="true" class="icon icon-star"></span></span>
+                                                                        <span class="text-muted" id="reviews">12 reviews</span>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-4 col-md-3 hidden fsj-optimizely-variation-1-new-layout">
+                                                                <div class="u-margin-bottom-0 u-font-size-small">
+                                                                    <div class="u-text-color-yellow">
+                                                                        <span aria-hidden="true" class="icon icon-star"></span>
+                                                                        <span aria-hidden="true" class="icon icon-star"></span>
+                                                                        <span aria-hidden="true" class="icon icon-star"></span>
+                                                                        <span aria-hidden="true" class="icon icon-star"></span>
+                                                                        <span aria-hidden="true" class="icon icon-star"></span>
+                                                                    </div>
+                                                                    <div class="text-muted">12 reviews</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-6 col-md-4 fsj-optimizely-original-new-layout" id="avvorating">
+                                                                <p class="u-margin-bottom-0 u-font-size-small">
+                                                                    <span><span><span aria-hidden="true" class="icon icon-avvo"></span><span class="sr-only">Avvo</span></span></span>
+                                                                    <strong>Rating:</strong>
+                                                                    <strong class="text-nowrap" id="rating">10</strong>
+                                                                </p>
+                                                            </div>
+                                                            <div class="col-xs-4 col-md-3 hidden fsj-optimizely-variation-1-new-layout">
+                                                                <div class="u-margin-bottom-0 u-font-size-small">
+                                                                    <div class="text-nowrap">
+                                                                        <span class="strong">10</span>
+                                                                        <span>&nbsp;out of 10</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="small">
+                                                                    <span>Avvo Rating</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="hidden-xs hidden-sm">
+                                                                <div class="col-xs-12 col-md-4 hidden-xs hidden-sm fsj-optimizely-original-new-layout">
+                                                                    <p class="u-margin-bottom-0 u-font-size-small">
+                                                                        <span class="text-muted" id="years">Licensed for 23 years</span>
+                                                                    </p>
+                                                                </div>
+                                                                <div class="col-xs-12 hidden fsj-optimizely-variation-1-new-layout u-margin-top-half">
+                                                                    <div class="row">
+                                                                        <div class="col-xs-12 col-md-4 hidden-xs hidden-sm">
+                                                                            <i aria-hidden="true" class="fa fa-bank u-text-color-dark-gray">&nbsp;</i>
+                                                                            <span class="small text-muted"> 23 years licensed</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xs-12">
+                                                                    <div class="v-js-reviews-section">
+                                                                        <p class="u-font-size-small">
+                                                                            <strong>Review:&nbsp;</strong><span id="review">"I couldn't be more grateful for the experience I had with Bradley Johnson. I had never had to deal with a serious court issue before and didn't even know where to..."</span>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="hidden-md hidden-lg">
+                                                        <div class="col-xs-12 col-md-4 hidden-xs hidden-sm fsj-optimizely-original-new-layout">
+                                                            <p class="u-margin-bottom-0 u-font-size-small">
+                                                                <span class="text-muted">Licensed for 23 years</span>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-xs-12 hidden fsj-optimizely-variation-1-new-layout u-margin-top-half">
+                                                            <div class="row">
+                                                                <div class="col-xs-12 col-md-4 hidden-xs hidden-sm">
+                                                                    <i aria-hidden="true" class="fa fa-bank u-text-color-dark-gray">&nbsp;</i>
+                                                                    <span class="small text-muted"> 23 years licensed</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-12">
+                                                            <div class="v-js-reviews-section">
+                                                                <p class="u-font-size-small">
+                                                                    <strong>Review:&nbsp;</strong>"I couldn't be more grateful for the experience I had with Bradley Johnson. I had never had to deal with a serious court issue before and didn't even know where to..."
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-md-3 v-optimizely-card">
+                                                <div class="hidden hidden-xs hidden-sm fsj-optimizely-variation-1-new-layout">
+                                                    <div class="v-serp-lawyer-address u-font-size-small" itemscope="" itemtype="http://schema.org/PostalAddress">
+                                                        <div itemprop="streetAddress">1325 Fourth Ave Ste 535</div>
+                                                        <div>
+                                                            <span itemprop="addressLocality">Seattle</span>
+                                                            <span>, </span>
+                                                            <span itemprop="addressRegion">WA</span>
+                                                            <span itemprop="postalCode"> 98101</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row small text-center">
+                                                    <div class="v-js-now-accepting col-xs-12 u-text-color-green">
+                                                        <span aria-hidden="true" class="icon icon-checkmark"></span> Accepting new clients!
+                                                    </div>
+                                                    <div class="hidden-xs hidden-sm">
+                                                        <div class="col-sm-12 u-margin-top-half">
+                                                            <div class="btn btn-primary btn-block">
+                                                                <i aria-hidden="true" class="fa fa-comment">&nbsp;</i>Message
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-12 u-margin-top-half">
+                                                            <div class="btn btn-secondary btn-block"><span class="visible-sm"><i aria-hidden="true" class="fa fa-phone">&nbsp;</i>Call</span><span class="hidden-xs hidden-sm"><i aria-hidden="true" class="fa fa-phone">&nbsp;</i><span id="phone">206-438-4451</span></span></div>
+                                                        </div>
+                                                        <div class="col-xs-6 col-sm-12 u-margin-top-half">
+                                                            <div class="btn btn-outline btn-block js-profile-link-test">View profile</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="hidden-md hidden-lg">
+                                                        <div class="u-margin-top-half col-xs-4">
+                                                            <div class="btn btn-primary btn-block"><span class="visible-xs visible-sm"><i aria-hidden="true" class="fa fa-phone hidden-xs">&nbsp;</i>Call</span><span class="hidden-xs hidden-sm"><i aria-hidden="true" class="fa fa-phone hidden-xs">&nbsp;</i>206-438-4451</span></div>
+                                                        </div>
+                                                        <div class="u-margin-top-half col-xs-4">
+                                                            <div class="btn btn-outline btn-block"><i aria-hidden="true" class="fa fa-comment hidden-xs">&nbsp;</i>Message</div>
+                                                        </div>
+                                                        <div class="u-margin-top-half col-xs-4">
+                                                            <div class="btn btn-outline btn-block js-profile-link-test">Profile</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr class="fsj-optimizely-original-new-layout">
+                                </div>
+
+
+
+                                <!--new ads-->
+
+
+
+                                <div class="v-jk-listing-card js-zws col-xs-12 gtm-attorney">
+                                    <div class="row visible-xs u-margin-bottom-half fsj-optimizely-original-new-layout">
+                                        <div class="col-xs-12">
+                                            <span class="label u-bg-light-gray u-bg-dark" style="padding: 2px 4px;">Ad</span>Protect your license. Stay out of jail. 25 years of experience. Call for a free consultation 206-438-4451
+                                        </div>
+                                    </div>
+                                    <div class="v-optimizely-card-cells">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-md-9 v-optimizely-card">
+                                                <div class="row hidden-md hidden-lg hidden fsj-optimizely-variation-1-new-layout">
+                                                    <div class="col-xs-12">
+                                                        <span class="label u-bg-light-gray u-bg-dark" style="padding: 2px 4px;">Ad</span> Protect your license. Stay out of jail. 25 years of experience. Call for a free consultation 206-438-4451
+                                                    </div>
+                                                    <div class="col-xs-12 u-spacer-0"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-3 col-sm-2 remove-right-gutter v-js-profile-click">
+                                                        <div class="labeled-img u-font-size-xs">
+                                                            <figure><img class="img-responsive" id="img" src="https://images.avvo.com/avvo/ugc/images/head_shot/standard/22107_1489012153.jpg" alt=""></figure>
+                                                            <div class="label label-pro">
+                                                                <div class="sr-only">Avvo</div> Pro
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-9 col-sm-10 v-js-profile-click">
+                                                        <h3 class="u-vertical-margin-0 fsj-optimizely-original-new-layout"><span id="name">Bradley Johnson</span></h3>
+                                                        <div class="u-font-size-large hidden u-margin-top-0 block-link-proxy fsj-optimizely-variation-1-new-layout">Bradley Johnson</div>
+
+                                                        <div class="row hidden-xs hidden-sm">
+
+                                                            <div class="col-xs-12">
+
+                                                                <span class="label u-bg-light-gray u-bg-dark" style="padding: 2px 4px;">Ad</span><span id="tagline"> Protect your license. Stay out of jail. 25 years of experience. Call for a free consultation 206-438-4451</span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-xs-6 col-md-4 fsj-optimizely-original-new-layout" id="clientreviews">
+                                                                <div class="u-margin-bottom-0 u-font-size-small">
+                                                                    <p class="visible-xs">
+                                                                        <span class="u-text-color-yellow"><span aria-hidden="true" class="icon icon-star"></span><span aria-hidden="true" class="icon icon-star"></span><span aria-hidden="true" class="icon icon-star"></span><span aria-hidden="true" class="icon icon-star"></span><span aria-hidden="true" class="icon icon-star"></span></span>
+                                                                        <span class="text-muted">(12)</span>
+                                                                    </p>
+                                                                    <p class="hidden-xs">
+                                                                        <span class="u-text-color-yellow"><span aria-hidden="true" class="icon icon-star"></span><span aria-hidden="true" class="icon icon-star"></span><span aria-hidden="true" class="icon icon-star"></span><span aria-hidden="true" class="icon icon-star"></span><span aria-hidden="true" class="icon icon-star"></span></span>
+                                                                        <span class="text-muted" id="reviews">12 reviews</span>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-4 col-md-3 hidden fsj-optimizely-variation-1-new-layout">
+                                                                <div class="u-margin-bottom-0 u-font-size-small">
+                                                                    <div class="u-text-color-yellow">
+                                                                        <span aria-hidden="true" class="icon icon-star"></span>
+                                                                        <span aria-hidden="true" class="icon icon-star"></span>
+                                                                        <span aria-hidden="true" class="icon icon-star"></span>
+                                                                        <span aria-hidden="true" class="icon icon-star"></span>
+                                                                        <span aria-hidden="true" class="icon icon-star"></span>
+                                                                    </div>
+                                                                    <div class="text-muted">12 reviews</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-6 col-md-4 fsj-optimizely-original-new-layout" id="avvorating">
+                                                                <p class="u-margin-bottom-0 u-font-size-small">
+                                                                    <span><span><span aria-hidden="true" class="icon icon-avvo"></span><span class="sr-only">Avvo</span></span></span>
+                                                                    <strong>Rating:</strong>
+                                                                    <strong class="text-nowrap" id="rating">10</strong>
+                                                                </p>
+                                                            </div>
+                                                            <div class="col-xs-4 col-md-3 hidden fsj-optimizely-variation-1-new-layout">
+                                                                <div class="u-margin-bottom-0 u-font-size-small">
+                                                                    <div class="text-nowrap">
+                                                                        <span class="strong">10</span>
+                                                                        <span>&nbsp;out of 10</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="small">
+                                                                    <span>Avvo Rating</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="hidden-xs hidden-sm">
+                                                                <div class="col-xs-12 col-md-4 hidden-xs hidden-sm fsj-optimizely-original-new-layout">
+                                                                    <p class="u-margin-bottom-0 u-font-size-small">
+                                                                        <span class="text-muted" id="years">Licensed for 23 years</span>
+                                                                    </p>
+                                                                </div>
+                                                                <div class="col-xs-12 hidden fsj-optimizely-variation-1-new-layout u-margin-top-half">
+                                                                    <div class="row">
+                                                                        <div class="col-xs-12 col-md-4 hidden-xs hidden-sm">
+                                                                            <i aria-hidden="true" class="fa fa-bank u-text-color-dark-gray">&nbsp;</i>
+                                                                            <span class="small text-muted"> 23 years licensed</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xs-12">
+                                                                    <div class="v-js-reviews-section">
+                                                                        <p class="u-font-size-small">
+                                                                            <strong>Review:&nbsp;</strong><span id="review">"I couldn't be more grateful for the experience I had with Bradley Johnson. I had never had to deal with a serious court issue before and didn't even know where to..."</span>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="hidden-md hidden-lg">
+                                                        <div class="col-xs-12 col-md-4 hidden-xs hidden-sm fsj-optimizely-original-new-layout">
+                                                            <p class="u-margin-bottom-0 u-font-size-small">
+                                                                <span class="text-muted">Licensed for 23 years</span>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-xs-12 hidden fsj-optimizely-variation-1-new-layout u-margin-top-half">
+                                                            <div class="row">
+                                                                <div class="col-xs-12 col-md-4 hidden-xs hidden-sm">
+                                                                    <i aria-hidden="true" class="fa fa-bank u-text-color-dark-gray">&nbsp;</i>
+                                                                    <span class="small text-muted"> 23 years licensed</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-12">
+                                                            <div class="v-js-reviews-section">
+                                                                <p class="u-font-size-small">
+                                                                    <strong>Review:&nbsp;</strong>"I couldn't be more grateful for the experience I had with Bradley Johnson. I had never had to deal with a serious court issue before and didn't even know where to..."
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-md-3 v-optimizely-card">
+                                                <div class="hidden hidden-xs hidden-sm fsj-optimizely-variation-1-new-layout">
+                                                    <div class="v-serp-lawyer-address u-font-size-small" itemscope="" itemtype="http://schema.org/PostalAddress">
+                                                        <div itemprop="streetAddress">1325 Fourth Ave Ste 535</div>
+                                                        <div>
+                                                            <span itemprop="addressLocality">Seattle</span>
+                                                            <span>, </span>
+                                                            <span itemprop="addressRegion">WA</span>
+                                                            <span itemprop="postalCode"> 98101</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row small text-center">
+                                                    <div class="v-js-now-accepting col-xs-12 u-text-color-green">
+                                                        <span aria-hidden="true" class="icon icon-checkmark"></span> Accepting new clients!
+                                                    </div>
+                                                    <div class="hidden-xs hidden-sm">
+                                                        <div class="col-sm-12 u-margin-top-half">
+                                                            <div class="btn btn-primary btn-block">
+                                                                <i aria-hidden="true" class="fa fa-comment">&nbsp;</i>Message
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-12 u-margin-top-half">
+                                                            <div class="btn btn-secondary btn-block"><span class="visible-sm"><i aria-hidden="true" class="fa fa-phone">&nbsp;</i>Call</span><span class="hidden-xs hidden-sm"><i aria-hidden="true" class="fa fa-phone">&nbsp;</i><span id="phone">206-438-4451</span></span></div>
+                                                        </div>
+                                                        <div class="col-xs-6 col-sm-12 u-margin-top-half">
+                                                            <div class="btn btn-outline btn-block js-profile-link-test">View profile</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="hidden-md hidden-lg">
+                                                        <div class="u-margin-top-half col-xs-4">
+                                                            <div class="btn btn-primary btn-block"><span class="visible-xs visible-sm"><i aria-hidden="true" class="fa fa-phone hidden-xs">&nbsp;</i>Call</span><span class="hidden-xs hidden-sm"><i aria-hidden="true" class="fa fa-phone hidden-xs">&nbsp;</i>206-438-4451</span></div>
+                                                        </div>
+                                                        <div class="u-margin-top-half col-xs-4">
+                                                            <div class="btn btn-outline btn-block"><i aria-hidden="true" class="fa fa-comment hidden-xs">&nbsp;</i>Message</div>
+                                                        </div>
+                                                        <div class="u-margin-top-half col-xs-4">
+                                                            <div class="btn btn-outline btn-block js-profile-link-test">Profile</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr class="fsj-optimizely-original-new-layout">
+                                </div>
+
+
+                                <div class="v-jk-listing-card js-zws col-xs-12 gtm-attorney">
+                                    <div class="row visible-xs u-margin-bottom-half fsj-optimizely-original-new-layout">
+                                        <div class="col-xs-12">
+                                            <span class="label u-bg-light-gray u-bg-dark" style="padding: 2px 4px;">Ad</span>Protect your license. Stay out of jail. 25 years of experience. Call for a free consultation 206-438-4451
+                                        </div>
+                                    </div>
+                                    <div class="v-optimizely-card-cells">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-md-9 v-optimizely-card">
+                                                <div class="row hidden-md hidden-lg hidden fsj-optimizely-variation-1-new-layout">
+                                                    <div class="col-xs-12">
+                                                        <span class="label u-bg-light-gray u-bg-dark" style="padding: 2px 4px;">Ad</span> Protect your license. Stay out of jail. 25 years of experience. Call for a free consultation 206-438-4451
+                                                    </div>
+                                                    <div class="col-xs-12 u-spacer-0"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-3 col-sm-2 remove-right-gutter v-js-profile-click">
+                                                        <div class="labeled-img u-font-size-xs">
+                                                            <figure><img class="img-responsive" id="img" src="https://images.avvo.com/avvo/ugc/images/head_shot/standard/22107_1489012153.jpg" alt=""></figure>
+                                                            <div class="label label-pro">
+                                                                <div class="sr-only">Avvo</div> Pro
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-9 col-sm-10 v-js-profile-click">
+                                                        <h3 class="u-vertical-margin-0 fsj-optimizely-original-new-layout"><span id="name">Bradley Johnson</span></h3>
+                                                        <div class="u-font-size-large hidden u-margin-top-0 block-link-proxy fsj-optimizely-variation-1-new-layout">Bradley Johnson</div>
+
+                                                        <div class="row hidden-xs hidden-sm">
+
+                                                            <div class="col-xs-12">
+
+                                                                <span class="label u-bg-light-gray u-bg-dark" style="padding: 2px 4px;">Ad</span><span id="tagline"> Protect your license. Stay out of jail. 25 years of experience. Call for a free consultation 206-438-4451</span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-xs-6 col-md-4 fsj-optimizely-original-new-layout" id="clientreviews">
+                                                                <div class="u-margin-bottom-0 u-font-size-small">
+                                                                    <p class="visible-xs">
+                                                                        <span class="u-text-color-yellow"><span aria-hidden="true" class="icon icon-star"></span><span aria-hidden="true" class="icon icon-star"></span><span aria-hidden="true" class="icon icon-star"></span><span aria-hidden="true" class="icon icon-star"></span><span aria-hidden="true" class="icon icon-star"></span></span>
+                                                                        <span class="text-muted">(12)</span>
+                                                                    </p>
+                                                                    <p class="hidden-xs">
+                                                                        <span class="u-text-color-yellow"><span aria-hidden="true" class="icon icon-star"></span><span aria-hidden="true" class="icon icon-star"></span><span aria-hidden="true" class="icon icon-star"></span><span aria-hidden="true" class="icon icon-star"></span><span aria-hidden="true" class="icon icon-star"></span></span>
+                                                                        <span class="text-muted" id="reviews">12 reviews</span>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-4 col-md-3 hidden fsj-optimizely-variation-1-new-layout">
+                                                                <div class="u-margin-bottom-0 u-font-size-small">
+                                                                    <div class="u-text-color-yellow">
+                                                                        <span aria-hidden="true" class="icon icon-star"></span>
+                                                                        <span aria-hidden="true" class="icon icon-star"></span>
+                                                                        <span aria-hidden="true" class="icon icon-star"></span>
+                                                                        <span aria-hidden="true" class="icon icon-star"></span>
+                                                                        <span aria-hidden="true" class="icon icon-star"></span>
+                                                                    </div>
+                                                                    <div class="text-muted">12 reviews</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-6 col-md-4 fsj-optimizely-original-new-layout" id="avvorating">
+                                                                <p class="u-margin-bottom-0 u-font-size-small">
+                                                                    <span><span><span aria-hidden="true" class="icon icon-avvo"></span><span class="sr-only">Avvo</span></span></span>
+                                                                    <strong>Rating:</strong>
+                                                                    <strong class="text-nowrap" id="rating">10</strong>
+                                                                </p>
+                                                            </div>
+                                                            <div class="col-xs-4 col-md-3 hidden fsj-optimizely-variation-1-new-layout">
+                                                                <div class="u-margin-bottom-0 u-font-size-small">
+                                                                    <div class="text-nowrap">
+                                                                        <span class="strong">10</span>
+                                                                        <span>&nbsp;out of 10</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="small">
+                                                                    <span>Avvo Rating</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="hidden-xs hidden-sm">
+                                                                <div class="col-xs-12 col-md-4 hidden-xs hidden-sm fsj-optimizely-original-new-layout">
+                                                                    <p class="u-margin-bottom-0 u-font-size-small">
+                                                                        <span class="text-muted" id="years">Licensed for 23 years</span>
+                                                                    </p>
+                                                                </div>
+                                                                <div class="col-xs-12 hidden fsj-optimizely-variation-1-new-layout u-margin-top-half">
+                                                                    <div class="row">
+                                                                        <div class="col-xs-12 col-md-4 hidden-xs hidden-sm">
+                                                                            <i aria-hidden="true" class="fa fa-bank u-text-color-dark-gray">&nbsp;</i>
+                                                                            <span class="small text-muted"> 23 years licensed</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xs-12">
+                                                                    <div class="v-js-reviews-section">
+                                                                        <p class="u-font-size-small">
+                                                                            <strong>Review:&nbsp;</strong><span id="review">"I couldn't be more grateful for the experience I had with Bradley Johnson. I had never had to deal with a serious court issue before and didn't even know where to..."</span>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="hidden-md hidden-lg">
+                                                        <div class="col-xs-12 col-md-4 hidden-xs hidden-sm fsj-optimizely-original-new-layout">
+                                                            <p class="u-margin-bottom-0 u-font-size-small">
+                                                                <span class="text-muted">Licensed for 23 years</span>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-xs-12 hidden fsj-optimizely-variation-1-new-layout u-margin-top-half">
+                                                            <div class="row">
+                                                                <div class="col-xs-12 col-md-4 hidden-xs hidden-sm">
+                                                                    <i aria-hidden="true" class="fa fa-bank u-text-color-dark-gray">&nbsp;</i>
+                                                                    <span class="small text-muted"> 23 years licensed</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-12">
+                                                            <div class="v-js-reviews-section">
+                                                                <p class="u-font-size-small">
+                                                                    <strong>Review:&nbsp;</strong>"I couldn't be more grateful for the experience I had with Bradley Johnson. I had never had to deal with a serious court issue before and didn't even know where to..."
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-md-3 v-optimizely-card">
+                                                <div class="hidden hidden-xs hidden-sm fsj-optimizely-variation-1-new-layout">
+                                                    <div class="v-serp-lawyer-address u-font-size-small" itemscope="" itemtype="http://schema.org/PostalAddress">
+                                                        <div itemprop="streetAddress">1325 Fourth Ave Ste 535</div>
+                                                        <div>
+                                                            <span itemprop="addressLocality">Seattle</span>
+                                                            <span>, </span>
+                                                            <span itemprop="addressRegion">WA</span>
+                                                            <span itemprop="postalCode"> 98101</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row small text-center">
+                                                    <div class="v-js-now-accepting col-xs-12 u-text-color-green">
+                                                        <span aria-hidden="true" class="icon icon-checkmark"></span> Accepting new clients!
+                                                    </div>
+                                                    <div class="hidden-xs hidden-sm">
+                                                        <div class="col-sm-12 u-margin-top-half">
+                                                            <div class="btn btn-primary btn-block">
+                                                                <i aria-hidden="true" class="fa fa-comment">&nbsp;</i>Message
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-12 u-margin-top-half">
+                                                            <div class="btn btn-secondary btn-block"><span class="visible-sm"><i aria-hidden="true" class="fa fa-phone">&nbsp;</i>Call</span><span class="hidden-xs hidden-sm"><i aria-hidden="true" class="fa fa-phone">&nbsp;</i><span id="phone">206-438-4451</span></span></div>
+                                                        </div>
+                                                        <div class="col-xs-6 col-sm-12 u-margin-top-half">
+                                                            <div class="btn btn-outline btn-block js-profile-link-test">View profile</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="hidden-md hidden-lg">
+                                                        <div class="u-margin-top-half col-xs-4">
+                                                            <div class="btn btn-primary btn-block"><span class="visible-xs visible-sm"><i aria-hidden="true" class="fa fa-phone hidden-xs">&nbsp;</i>Call</span><span class="hidden-xs hidden-sm"><i aria-hidden="true" class="fa fa-phone hidden-xs">&nbsp;</i>206-438-4451</span></div>
+                                                        </div>
+                                                        <div class="u-margin-top-half col-xs-4">
+                                                            <div class="btn btn-outline btn-block"><i aria-hidden="true" class="fa fa-comment hidden-xs">&nbsp;</i>Message</div>
+                                                        </div>
+                                                        <div class="u-margin-top-half col-xs-4">
+                                                            <div class="btn btn-outline btn-block js-profile-link-test">Profile</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr class="fsj-optimizely-original-new-layout">
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <link rel="stylesheet" href="https://use.fontawesome.com/9818d06258.css" media="all">
+
+
+
+
+
+
+
+
+</body>
+</html>
